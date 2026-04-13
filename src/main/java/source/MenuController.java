@@ -30,7 +30,7 @@ public class MenuController {
     @SuppressWarnings("unchecked")
     public void initialize() throws IOException, SQLException{
         TableColumn<Barang, String> colNama = new TableColumn<Barang, String>("Nama");
-        TableColumn<Barang, Integer> colKuantitas = new TableColumn<Barang, Integer>("Qty");
+        TableColumn<Barang, Integer> colKuantitas = new TableColumn<Barang, Integer>("Kuantitas");
         TableColumn<Barang, ImageView> colImage = new TableColumn<Barang, ImageView>("Gambar");
         TableColumn<Barang, String> colTipe = new TableColumn<Barang, String>("Tipe");
 
@@ -52,7 +52,7 @@ public class MenuController {
 
     private static ObservableList<Barang> loadDb() throws SQLException, IOException{
         ObservableList<Barang> daftarBarang = FXCollections.observableArrayList();
-        String cdImage = cd + "/src/main/resources/image/";
+        String cdImage = cd + "/src/main/resources/images/item thumbnails/";
         String pathToImage;
 
         PreparedStatement psmt = Db.connection.prepareStatement(

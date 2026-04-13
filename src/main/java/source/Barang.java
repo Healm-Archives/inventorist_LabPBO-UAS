@@ -1,7 +1,6 @@
 package source;
 
 import javafx.scene.control.TextField;
-// import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Barang {

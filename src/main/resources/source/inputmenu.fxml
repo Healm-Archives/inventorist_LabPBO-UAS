@@ -55,6 +55,11 @@
                   <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#actionSubmit" prefHeight="25.0" prefWidth="213.0" text="Submit" />
                </children>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="401.0">
+               <children>
+                  <Button fx:id="buttonBack" mnemonicParsing="false" onAction="#actionBack" prefHeight="25.0" prefWidth="213.0" text="Back" />
+               </children>
+            </HBox>
          </children>
       </VBox>
       <ImageView fx:id="imageViewPreview" fitHeight="398.0" fitWidth="345.0" pickOnBounds="true" preserveRatio="true" />

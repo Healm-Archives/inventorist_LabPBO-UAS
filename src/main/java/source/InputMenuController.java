@@ -1,15 +1,15 @@
 package source;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import java.io.IOException;
-// import java.sql.Blob;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -28,8 +28,30 @@ public class InputMenuController {
     @FXML private Label labelTipe;
     @FXML private Button buttonPreviewImage ;
     @FXML private Button buttonSubmit;
+    @FXML private Button buttonBack;
     
     FileInputStream fin;
+
+    @FXML private void actionBack() throws IOException {
+        App.setRoot("menu");
+    }
+
+    @FXML private void actionImagePath() throws IOException, SQLException {
+        try {
+            imageViewPreview.setImage(new Image(new FileInputStream(textFieldImagePath.getText())));
+            imageViewPreview.setFitHeight(300);
+            imageViewPreview.setPreserveRatio(true);
+        }
+        catch (FileNotFoundException fileError) {
+            // System.out.println(fileError.getLocalizedMessage());
+            // System.out.println("Where File hm? ");
+            Alert noFileAlert = new Alert(AlertType.ERROR);
+            noFileAlert.setTitle("File Not Found");
+            noFileAlert.setHeaderText("File is not available.");
+            // noFileAlert.setContentText("File is not available.");
+            noFileAlert.showAndWait();
+        }
+    }
 
     @FXML private void actionSubmit() throws IOException{
         if(textFieldNama.getLength() == 0){ return; }
@@ -54,25 +76,16 @@ public class InputMenuController {
             psmt.setBlob(4, fin);
             
             psmt.executeUpdate();
+            App.setRoot("menu");
         }
         catch (SQLException sql){
             System.out.println(sql.getLocalizedMessage());
+            Alert sqlPrimaryAlert = new Alert(AlertType.ERROR);
+            sqlPrimaryAlert.setTitle("Name error");
+            sqlPrimaryAlert.setContentText("Name already exists!");
+            sqlPrimaryAlert.showAndWait();
         }
 
-        App.setRoot("menu");
     }
 
-    @FXML private void actionImagePath() throws IOException, SQLException {
-        try {
-            imageViewPreview.setImage(new Image(new FileInputStream(textFieldImagePath.getText())));
-            imageViewPreview.setFitHeight(300);
-            imageViewPreview.setPreserveRatio(true);
-        }
-        catch (FileNotFoundException fileError) {
-            System.out.println(fileError.getLocalizedMessage());
-            System.out.println("Where File hm? ");
-        }
-        // File file = new File("D:\\Data\\Kevin M\\susdo\\Semester 4\\LabPBO\\JFX\\inventorist2\\src\\main\\resources\\image\\1.jpg");
-        // System.out.println(file.exists());
-    }
 }

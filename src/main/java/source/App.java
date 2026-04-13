@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 /**
  * JavaFX App
  * aplikasi inventaris barang
@@ -23,10 +24,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(getLoader("inputmenu").load(), 640, 480);
+        Db.dbConn();
+        scene = new Scene(getLoader("menu").load(), 640, 480);
         stage.setScene(scene);
         stage.show();
-        Db.dbInit();
+        stage.setTitle("Inventory");
     }
 
     static void setRoot(String fxml) throws IOException {
