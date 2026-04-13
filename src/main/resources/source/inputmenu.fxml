@@ -6,31 +6,57 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.InputMenuController">
+<HBox alignment="BASELINE_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="source.InputMenuController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <VBox prefHeight="400.0" prefWidth="345.0">
          <children>
-            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+            <HBox alignment="CENTER" prefHeight="51.0" prefWidth="255.0">
                <children>
-                  <Label fx:id="labelNama" text="Nama Barang" />
-                  <Label fx:id="labelKuantitas" text="Kuantitas" />
-                  <Label fx:id="labelImagePath" text="URL gambar" />
-                  <Label fx:id="labelTipe" text="Tipe" />
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="256.0" text="Inventory Input" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
                </children>
-            </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="600.0">
                <children>
-                  <TextField fx:id="textFieldNama" promptText="nama" />
-                  <TextField fx:id="textFieldKuantitas" promptText="kuantitas" />
-                  <TextField fx:id="textFieldImagePath" onAction="#actionImagePath" promptText="Image path" />
-                  <TextField fx:id="textFieldTipe" promptText="tipe" />
+                  <Label fx:id="labelNama" contentDisplay="RIGHT" graphicTextGap="0.0" prefHeight="25.0" prefWidth="93.0" text="Nama Barang" />
+                  <TextField fx:id="textFieldNama" prefHeight="3.0" prefWidth="119.0" promptText="nama" />
                </children>
-            </VBox>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="8.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="labelKuantitas" contentDisplay="RIGHT" graphicTextGap="0.0" prefHeight="25.0" prefWidth="93.0" text="Kuantitas" />
+                  <TextField fx:id="textFieldKuantitas" prefHeight="3.0" prefWidth="119.0" promptText="kuantitas" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="8.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="labelImagePath" contentDisplay="RIGHT" graphicTextGap="0.0" prefHeight="25.0" prefWidth="93.0" text="Image filepath" />
+                  <TextField fx:id="textFieldImagePath" prefHeight="25.0" prefWidth="119.0" promptText="Absolute path to image" />
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="44.0" prefWidth="255.0">
+               <children>
+                  <Label fx:id="labelTipe" contentDisplay="RIGHT" graphicTextGap="0.0" prefHeight="25.0" prefWidth="93.0" text="Tipe" />
+                  <TextField fx:id="textFieldTipe" prefHeight="25.0" prefWidth="119.0" promptText="tipe" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="401.0">
+               <children>
+                  <Button fx:id="buttonPreviewImage" mnemonicParsing="false" onAction="#actionImagePath" prefHeight="25.0" prefWidth="213.0" text="Preview Image" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="401.0">
+               <children>
+                  <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#actionSubmit" prefHeight="25.0" prefWidth="213.0" text="Submit" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" />
-      <ImageView fx:id="imageViewPreview" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="buttonSubmit" mnemonicParsing="false" onAction="#actionSubmit" text="Submit" />
+      </VBox>
+      <ImageView fx:id="imageViewPreview" fitHeight="398.0" fitWidth="345.0" pickOnBounds="true" preserveRatio="true" />
    </children>
-</VBox>
+</HBox>
