@@ -11,7 +11,7 @@ public class Db {
     static final String jdbcDriver = "com.mysql.cj.jdbc.Driver";
     static final String dbName = "inventorist_java";
     static final String dbUsername = "root";
-    static final String dbPassword = "";
+    static final String dbPassword = "admin";
     static final String dbUrl = "jdbc:mysql://localhost/" + dbName;
     
     public static void dbConn() {
